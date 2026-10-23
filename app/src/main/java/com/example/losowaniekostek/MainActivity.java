@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,23 @@ public class MainActivity extends AppCompatActivity {
                 Random random = new Random();
 
                 int randomNumber = random.nextInt(100) + 1;
+                sprawdzLiczbe();
             }
         });
+    }
+
+    public void sprawdzLiczbe(){
+        EditText editTextLiczbaKostek = findViewById(R.id.editTextLiczbaKostek);
+        String input = editTextLiczbaKostek.getText().toString();
+        int liczba = Integer.parseInt(input);
+
+
+        if (liczba <= 0){
+            Toast.makeText(this, "Liczba nie moze byc mniejsza lub rowna zero", Toast.LENGTH_SHORT).show();
+        } else if (liczba > 100) {
+            Toast.makeText(this, "Liczba nie moze byc wieksza od 100", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Podano prawidlowa liczbe kostek", Toast.LENGTH_SHORT).show();
+        }
     }
 }
